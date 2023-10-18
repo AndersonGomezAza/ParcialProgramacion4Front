@@ -67,3 +67,11 @@ mat-form-field {
   background-color: #7b1fa2 !important;
   color: white !important;
 }
+
+.headerMenu {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
