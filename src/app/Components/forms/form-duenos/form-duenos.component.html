@@ -1,0 +1,70 @@
+<form [formGroup]="duenoForm" novalidate (ngSubmit)="onSubmit()" class="form-components">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Registrar Dueño</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre" formControlName="Nombre">
+            <mat-error *ngIf="duenoForm.controls['Nombre'].hasError('required')">
+              el Nombre del dueño es <strong>Requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Apellido" formControlName="Apellido">
+            <mat-error *ngIf="duenoForm.controls['Apellido'].hasError('required')">
+              El Apellido del dueño es <strong>Requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Direccion" formControlName="Direccion">
+            <mat-error *ngIf="duenoForm.controls['Direccion'].hasError('required')">
+              la Direccion del dueño es <strong>Requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput type="number" placeholder="Telefono" formControlName="Telefono">
+            <mat-error *ngIf="duenoForm.controls['Telefono'].hasError('required')">
+              El Telefono del dueño es <strong>Requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput type="email" placeholder="Correo Electronico" formControlName="CorreoElectronico">
+            <mat-error *ngIf="duenoForm.controls['CorreoElectronico'].hasError('required')">
+              El Correo Electronico del dueño es <strong>Requerido</strong>
+            </mat-error>
+            <mat-error *ngIf="duenoForm.controls['CorreoElectronico'].hasError('pattern')">
+              El formato de correo es ejemplo@ejemplo.com
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Ocupacion" formControlName="Ocupacion">
+            <mat-error *ngIf="duenoForm.controls['Ocupacion'].hasError('required')">
+              la Ocupacion del dueño es <strong>Requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Crear</button>
+      <button mat-button mat-dialog-close>Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -1,10 +1,8 @@
 export class DueñosModel {
-  Nombre:string;
-  Genero:string;
-  FechaNacimiento: Date;
-  Direccion:string;
-  Telefono:string;
+  NombreDueño:string;
+  ApellidoDueño:string;
+  DireccionDueño:string;
+  TelefonoDueño:string;
   CorreoElectronico:string;
   Ocupacion:string;
-  EstadoCivil:string;
 }

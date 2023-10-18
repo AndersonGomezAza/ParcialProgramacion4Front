@@ -1,0 +1,68 @@
+<form [formGroup]="comidaForm" novalidate (ngSubmit)="onSubmit()" class="form-components">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Registrar Comida</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre" formControlName="Nombre">
+            <mat-error *ngIf="comidaForm.controls['Nombre'].hasError('required')">
+              el nombre de la comida es <strong>Requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Tipo" formControlName="Tipo">
+            <mat-error *ngIf="comidaForm.controls['Tipo'].hasError('required')">
+              El Tipo de comida es <strong>Requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Descripcion" formControlName="Descripcion">
+            <mat-error *ngIf="comidaForm.controls['Descripcion'].hasError('required')">
+              la Descripcion de la comida es <strong>Requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field floatLabel="always">
+            <mat-label>Precio</mat-label>
+            <input matInput type="number" class="example-right-align" placeholder="0" formControlName="Precio">
+            <span style="color:white" matTextPrefix>$&nbsp;</span>
+            <span style="color:white" matTextSuffix>.00</span>
+            <mat-error *ngIf="comidaForm.controls['Precio'].hasError('required')">
+              El precio del plan es <strong>Requerido</strong>
+            </mat-error>
+            <mat-error *ngIf="comidaForm.controls['Precio'].hasError('pattern')">
+              El precio sin puntos ni comas.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput type="number" placeholder="Calorias" formControlName="Calorias">
+            <mat-error *ngIf="comidaForm.controls['Calorias'].hasError('required')">
+              las Calorias de la comida son <strong>Requeridas</strong>
+            </mat-error>
+            <mat-error *ngIf="comidaForm.controls['Calorias'].hasError('max')">
+              Se puede registrar hasta 500 calorias
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Crear</button>
+      <button mat-button mat-dialog-close>Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

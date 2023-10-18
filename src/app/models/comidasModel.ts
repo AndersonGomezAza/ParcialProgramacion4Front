@@ -1,7 +1,7 @@
 export class ComidasModel {
   NombreComida:string;
-  Descripcion:string;
+  DescripcionComida:string;
   TipoComida:string;
-  Precio:number;
-  Calorias:number;
+  PrecioComida:number;
+  CaloriasComida:number;
 }

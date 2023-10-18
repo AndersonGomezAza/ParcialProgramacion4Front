@@ -1,3 +1,40 @@
-<h1>{{ titleMascotas }}</h1>
-<br>
-<p>Componente de Mascotas</p>
+<div class="search-table">
+  <mat-form-field>
+    <mat-label>Busqueda</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ej. Terry" #input>
+  </mat-form-field>
+</div>
+
+<div class="registrar">
+  <button mat-button (click)="openDialog()" class="btn-create">Crear Mascota</button>
+</div>
+
+<div class="mat-elevation-z8 table-component">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- Generar dinámicamente las columnas -->
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+      <div *ngIf="column!='acciones'">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ columnHeaders[column] }} </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element[column] }} </mat-cell>
+      </div>
+      <div *ngIf="column=='acciones'">
+        <mat-header-cell *matHeaderCellDef> {{ columnHeaders[column] }} </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="container-acciones">
+          <a class="btn-acciones"><i class='bx bx-edit-alt'></i></a>
+          <a class="btn-acciones" (click)="removerMascota(element)"><i class='bx bx-trash'></i></a>
+        </mat-cell>
+      </div>
+    </ng-container>
+
+    <!-- Encabezado de la tabla -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No se encontro informacion sobre "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Seleccione Paginas"></mat-paginator>
+</div>

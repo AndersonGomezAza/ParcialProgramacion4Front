@@ -1,0 +1,54 @@
+<form [formGroup]="mascotaForm" (ngSubmit)="onSubmit()" class="form-components">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Registrar Dueño</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nombre" formControlName="Nombre">
+            <mat-error *ngIf="mascotaForm.controls['Nombre'].hasError('required')">
+              el Nombre de la mascota es <strong>Requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Raza" formControlName="Raza">
+            <mat-error *ngIf="mascotaForm.controls['Raza'].hasError('required')">
+              La Raza de la mascota es <strong>Requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Sexo" formControlName="Sexo">
+            <mat-error *ngIf="mascotaForm.controls['Sexo'].hasError('required')">
+              El sexo de la mascota es <strong>Requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Color" formControlName="Color">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput type="number" placeholder="Peso" formControlName="Peso">
+            <mat-error *ngIf="mascotaForm.controls['Peso'].hasError('required')">
+              El Peso de la mascota es <strong>Requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Crear</button>
+      <button mat-button mat-dialog-close>Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -8,7 +8,7 @@ export class ApiService {
 
   constructor(public api:HttpClient) { }
 
-  apiUrl = "https://localhost:7263/api/";
+  apiUrl = "https://localhost:7027/api/";
 
   public async Get (gatewayController: string){
     var respo:any;

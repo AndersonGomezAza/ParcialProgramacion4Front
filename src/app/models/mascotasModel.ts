@@ -1,9 +1,7 @@
 export class MascotasModel {
-   Nombre: string;
-   Especie: string;
-   Raza: string;
-   FechaNacimiento: Date;
-   Sexo: string;
-   Color: string;
-   Peso: number;
+   NombreMascota: string;
+   RazaMascota: string;
+   SexoMascota: string;
+   ColorMascota: string;
+   PesoMascota: number;
 }
