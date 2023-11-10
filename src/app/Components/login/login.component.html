@@ -1,0 +1,23 @@
+<div class="bodyLogin">
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h3>Bienvenido Inicia Sesión</h3>
+    <label for="Correo">Correo</label>
+    <mat-form-field class="full-width">
+      <input matInput  class="Input" type="text" id="Correo" formControlName="Correo">
+      <mat-error *ngIf="loginForm.controls['Correo'].hasError('required')">
+      </mat-error>
+    </mat-form-field>
+    <label for="Contraseña">Contraseña</label>
+    <mat-form-field class="full-width">
+      <input matInput type="password" id="Contraseña" formControlName="Contrasena">
+      <mat-error *ngIf="loginForm.controls['Contrasena'].hasError('required')">
+      </mat-error>
+    </mat-form-field>
+
+    <input type="submit" value="Ingresar" class="btn-login">
+  </form>
+</div>

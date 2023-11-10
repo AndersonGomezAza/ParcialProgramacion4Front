@@ -33,6 +33,7 @@ import { FormMascotasComponent } from './Components/forms/form-mascotas/form-mas
 import { MatRadioModule } from '@angular/material/radio';
 import { FormDuenosComponent } from './Components/forms/form-duenos/form-duenos.component';
 import { FormComidasComponent } from './Components/forms/form-comidas/form-comidas.component';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FormComidasComponent } from './Components/forms/form-comidas/form-comid
     MenuComponent,
     FormMascotasComponent,
     FormDuenosComponent,
-    FormComidasComponent
+    FormComidasComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,6 @@ import { FormComidasComponent } from './Components/forms/form-comidas/form-comid
     MatSelectModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatInputModule,
     MatNativeDateModule,
     MatRadioModule,
   ],
