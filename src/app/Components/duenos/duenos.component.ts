@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { ApiService } from 'src/app/Services/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { ModalService } from 'src/app/modal/modal.service';
 
 @Component({
   selector: 'app-duenos',
@@ -28,7 +29,9 @@ export class DuenosComponent {
     acciones: 'Acciones',
   };
 
-  constructor(public apiService: ApiService, public dialog: MatDialog) {
+  accion: string = "Crear";
+
+  constructor(public apiService: ApiService, public dialog: MatDialog, public modalService: ModalService) {
     this.dataSource = new MatTableDataSource()
   }
 
@@ -54,8 +57,19 @@ export class DuenosComponent {
   }
 
   openDialog() {
+    this.modalService.acciones.next(this.accion);
     this.dialog.open(FormDuenosComponent, {
       width: '60%',
+    });
+  }
+
+  editarDueno(element: any) {
+    this.modalService.acciones.next("Editar");
+
+    this.dialog.open(FormDuenosComponent, {
+      height: 'auto',
+      width: 'auto',
+      data: element // El objeto 'element' ahora contiene los datos del dueño a editar
     });
   }
 
