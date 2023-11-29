@@ -7,8 +7,8 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Nombres" formControlName="Nombres">
-            <mat-error *ngIf="comidaForm.controls['Nombres'].hasError('required')">
+            <input matInput placeholder="Nombre" formControlName="Nombre">
+            <mat-error *ngIf="comidaForm.controls['Nombre'].hasError('required')">
              los Nombres de la comida es <strong>Requerido</strong>
             </mat-error>
           </mat-form-field>
@@ -36,7 +36,7 @@
         <div class="col">
           <mat-form-field floatLabel="always">
             <mat-label>Precio</mat-label>
-            <input matInput type="number" class="example-right-align" placeholder="0" formControlName="Precio">
+            <input matInput type="number" min="0" class="example-right-align" placeholder="0" formControlName="Precio">
             <span style="color:white" matTextPrefix>$&nbsp;</span>
             <span style="color:white" matTextSuffix>.00</span>
             <mat-error *ngIf="comidaForm.controls['Precio'].hasError('required')">
@@ -45,11 +45,14 @@
             <mat-error *ngIf="comidaForm.controls['Precio'].hasError('pattern')">
               El precio sin puntos ni comas.
             </mat-error>
+            <mat-error *ngIf="comidaForm.controls['Precio'].hasError('min')">
+              El precio debe ser mayor a 1000.
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput type="number" placeholder="Calorias" formControlName="Calorias">
+            <input matInput type="number" min="0" placeholder="Calorias" formControlName="Calorias">
             <mat-error *ngIf="comidaForm.controls['Calorias'].hasError('required')">
               las Calorias de la comida son <strong>Requeridas</strong>
             </mat-error>
@@ -61,7 +64,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Crear</button>
+      <button mat-raised-button color="primary" type="submit">{{acciones}}</button>
       <button mat-button mat-dialog-close>Cancel</button>
     </mat-card-actions>
   </mat-card>

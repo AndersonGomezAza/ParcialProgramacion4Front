@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit{
 
   private fb = inject(FormBuilder);
   loginForm = this.fb.group({
-    Correo: [null, [Validators.required]],
+    Correo: [null, [Validators.required, Validators.pattern('^[^@]+@[^@]+\.[a-zA-Z]{2,}$')]],
     Contrasena: [null, [Validators.required]],
   });
 
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit{
       if (encontrado == false) {
         Swal.fire(
           'usuario no encontrado',
-          'Por favor ingrese todos los campos requeridos',
+          'Por favor Verifique que el correo y contraseña sean correctos',
           'error'
         )
       }

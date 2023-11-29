@@ -81,3 +81,7 @@ mat-form-field {
   justify-content: space-between;
   align-items: center;
 }
+
+mat-sidenav-content {
+  height: 100vh !important;
+}

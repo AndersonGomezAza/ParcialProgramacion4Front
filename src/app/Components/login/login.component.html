@@ -9,6 +9,10 @@
     <mat-form-field class="full-width">
       <input matInput  class="Input" type="text" id="Correo" formControlName="Correo">
       <mat-error *ngIf="loginForm.controls['Correo'].hasError('required')">
+        El correo es requerido
+      </mat-error>
+      <mat-error *ngIf="loginForm.controls['Correo'].hasError('pattern')">
+        El formato de correo es incorrecto
       </mat-error>
     </mat-form-field>
     <label for="Contraseña">Contraseña</label>
