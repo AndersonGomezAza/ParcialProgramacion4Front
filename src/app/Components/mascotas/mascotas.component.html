@@ -20,7 +20,7 @@
       <div *ngIf="column=='acciones'">
         <mat-header-cell *matHeaderCellDef> {{ columnHeaders[column] }} </mat-header-cell>
         <mat-cell *matCellDef="let element" class="container-acciones">
-          <a class="btn-acciones"><i class='bx bx-edit-alt'></i></a>
+          <a class="btn-acciones" (click)="editarMascota(element)"><i class='bx bx-edit-alt'></i></a>
           <a class="btn-acciones" (click)="removerMascota(element)"><i class='bx bx-trash'></i></a>
         </mat-cell>
       </div>

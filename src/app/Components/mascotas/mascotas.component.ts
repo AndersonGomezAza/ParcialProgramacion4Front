@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/Services/api.service';
 import { FormMascotasComponent } from '../forms/form-mascotas/form-mascotas.component';
 import Swal from 'sweetalert2';
+import { ModalService } from 'src/app/modal/modal.service';
 
 @Component({
   selector: 'app-mascotas',
@@ -27,7 +28,9 @@ export class MascotasComponent {
     acciones: 'Acciones',
   };
 
-  constructor(public apiService: ApiService, public dialog: MatDialog) {
+  accion: string = "Crear";
+
+  constructor(public apiService: ApiService, public dialog: MatDialog, public modalService: ModalService) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -53,8 +56,19 @@ export class MascotasComponent {
   }
 
   openDialog() {
+    this.modalService.acciones.next(this.accion);
     this.dialog.open(FormMascotasComponent, {
       width: '60%',
+    });
+  }
+
+  editarMascota(element: any) {
+    this.modalService.acciones.next("Editar");
+
+    this.dialog.open(FormMascotasComponent, {
+      height: 'auto',
+      width: 'auto',
+      data: element // El objeto 'element' ahora contiene los datos del dueño a editar
     });
   }
 

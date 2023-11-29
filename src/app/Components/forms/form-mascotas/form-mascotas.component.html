@@ -25,7 +25,10 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Sexo" formControlName="Sexo">
+            <mat-select placeholder="Sexo" formControlName="Sexo">
+                <mat-option value="M">Masculino</mat-option>
+                <mat-option value="F">Femenino</mat-option>
+            </mat-select>
             <mat-error *ngIf="mascotaForm.controls['Sexo'].hasError('required')">
               El sexo de la mascota es <strong>Requerida</strong>
             </mat-error>
@@ -38,16 +41,19 @@
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput type="number" placeholder="Peso" formControlName="Peso">
+            <input matInput type="number" min="0" placeholder="Peso" formControlName="Peso">
             <mat-error *ngIf="mascotaForm.controls['Peso'].hasError('required')">
               El Peso de la mascota es <strong>Requerida</strong>
+            </mat-error>
+            <mat-error *ngIf="mascotaForm.controls['Peso'].hasError('min')">
+              El Peso debe ser mayor de 0 kg
             </mat-error>
           </mat-form-field>
         </div>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Crear</button>
+      <button mat-raised-button color="primary" type="submit">{{acciones}}</button>
       <button mat-button mat-dialog-close>Cancel</button>
     </mat-card-actions>
   </mat-card>
